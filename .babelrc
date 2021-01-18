@@ -1,0 +1,14 @@
+{
+   "presets": [
+      "@babel/preset-env",
+      [
+         "@babel/preset-react",
+         {
+            "throwIfNamespace": false
+         }
+      ]
+   ],
+   "plugins": [
+      "transform-class-properties"
+   ]
+}
