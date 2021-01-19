@@ -5,7 +5,7 @@ module.exports = (env, options) => {
    const isProduction = options.mode === 'production'
 
    return {
-      entry: './src/index.js',
+      entry: ['core-js/stable', 'regenerator-runtime/runtime', './src/index.js'],
       output: {
          path: path.resolve(__dirname, 'public/scripts'),
          filename: 'bundle.js'
@@ -37,7 +37,7 @@ module.exports = (env, options) => {
       plugins: [
          new MiniCssExtractPlugin({
             // starting pt. is 'scripts' folder
-            filename: '/../styles/style.css'
+            filename: 'style.css'
          })
       ],
       devServer: {

@@ -1,1 +1,16 @@
-// GLOBAL STYLES (Default Styles)
+// Global Styles
+*, *::before, *::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   font-kerning: auto;
+}
+
+html {
+   // font-size: 62.5%;
+   scroll-behavior: smooth;
+}
