@@ -1,0 +1,36 @@
+.global-stats {
+   min-height: 30vh;
+   background: linear-gradient(rgba(18, 98, 255, 0.8), rgba(18, 98, 255, 0.8)),
+      url('./../images/banner.jpg') no-repeat center/cover;
+   color: $c-white;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   letter-spacing: 1px;
+   padding: 5rem 0;
+
+   .description {
+      color: rgba($c-white, 0.9);
+      font-style: italic;
+      margin-bottom: 5rem;
+   }
+}
+
+.global-stats-row {
+   display: flex;
+   justify-content: space-around;
+}
+
+.stat-box {
+   // padding: 0 2rem;
+
+   h3 span {
+      font-size: $h3;
+   }
+      
+   p {
+      color: rgba($c-white, 0.9);
+   }
+}

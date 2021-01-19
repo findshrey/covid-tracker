@@ -1,5 +1,19 @@
-// VARIABLES
+// Fonts
+$font-primary: 'Lato', sans-serif;
 
-// Sizing
+// Header(Tag) sizes
+$h1: clamp(3rem, calc(2rem + 1.5vw), 5rem);
+$h2: clamp(2.5rem, calc(2rem + 1vw), 4rem);
+$h3: clamp(2rem, calc(1.5rem + 1vw), 3rem);
+
+// Text Sizes
+$font-l: clamp(1.8rem, calc(1.5rem + 0.75vw), 2.4rem);
+$font-m: clamp(1.5rem, calc(1rem + 0.6vw), 1.8rem);
+$font-s: clamp(1.2rem, calc(1rem + 0.6vw), 1.5rem);
 
 // Colors
+$c-white: #fff;
+$c-black: #252525;
+
+// Section padding
+// $section-padding: clamp(6rem, calc(5rem + 2vw), 8rem) 0;

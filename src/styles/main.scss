@@ -1,67 +1,7 @@
+// System
 @import './base/config';
 @import './base/utilities';
 @import './base/global';
 
-.global {
-   height: 45vh;
-   width: 100%;
-   background: linear-gradient(rgba(18,98,255,0.9), rgba(18,98,255, 0.3)),
-      url('./../images/banner.jpg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-}
-
-.global .heading {
-   font-size: 3.5rem;
-   color: white;
-   font-weight: 700;
-   width: 100%;
-   text-align: center;
-   margin-top: 45px;
-}
-
-.global .description {
-   text-align: center;
-   font-size: 1.2rem;
-   color: rgba(255,255,255, 0.6);
-   font-family: 'nunito', sans-serif;
-   width: 100%;
-   height: 20px;
-   // margin-top: -30px;
-}
-
-.global .world-stats {
-   width: 100%;
-   height: 250px;
-   display: flex;
-   justify-content: center;
-}
-
-.world-stats-box {
-   height: 100%;
-   width: 250px;
-   float: left;
-   margin-right: 80px;
-}
-
-.total-numbers {
-   font-size: 2.7rem;
-   color: white;
-   font-weight: 700;
-   font-family: 'nunito';
-   width: 100%;
-   text-align: center;
-   margin-top: 30%;
-}
-
-.about {
-   width: 100%;
-   text-align: center;
-   color: rgba(255,255,255, 0.7);
-   margin-top: 5%;
-   font-family: 'nunito';
-}
+// Components
+@import './components/global-stats.scss';
