@@ -1,15 +1,19 @@
 .global-stats {
-   min-height: 30vh;
-   background: linear-gradient(rgba(18, 98, 255, 0.8), rgba(18, 98, 255, 0.8)),
+   min-height: 40vh;
+   background: linear-gradient(rgba(18, 98, 255, 0.9), rgba(18, 98, 255, 0.9)),
       url('./../images/banner.jpg') no-repeat center/cover;
    color: $c-white;
    display: flex;
-   flex-direction: column;
    align-items: center;
    justify-content: center;
-   text-align: center;
    letter-spacing: 1px;
    padding: 5rem 0;
+
+   .container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+   }
 
    .description {
       color: rgba($c-white, 0.9);

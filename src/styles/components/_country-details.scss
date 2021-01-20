@@ -1,0 +1,18 @@
+.details-row {
+   display: flex;
+   padding: 1rem;
+   border-bottom: 1px solid black;
+}
+
+.country-icon {
+   flex: 1;
+}
+.cases-box.cases {
+   flex: 2;
+}
+.cases-box.deaths {
+   flex: 2;
+}
+.cases-box.recovered {
+   flex: 2;
+}
