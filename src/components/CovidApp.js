@@ -1,11 +1,11 @@
 import React from 'react'
-import GlobalStats from './GlobalStats'
+import Header from './Header'
 import Countries from './Countries'
 
 const CovidApp = () => {
    return (
       <>
-         <GlobalStats />
+         <Header />
          <Countries />
       </>
    )

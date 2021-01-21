@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import ArraySort from 'array-sort'
-import HeadingNames from './HeadingNames'
 import NumberFormat from 'react-number-format'
+import TableHeadings from './TableHeadings'
 import CountryDetails from './CountryDetails'
 import Spinner from './Spinner'
 
@@ -12,95 +12,83 @@ class Countries extends React.Component {
       searchedCountries: []
    }
 
+   // Fetch countries
    async componentDidMount() {
-      const responseData = await axios.get('https://api.covid19api.com/summary')
+      const response = await axios.get('https://api.covid19api.com/summary')
 
-      let countryData = responseData.data.Countries
+      let countryData = response.data.Countries
       countryData = ArraySort(countryData, 'TotalConfirmed', { reverse: true })
 
-      this.setState({ countryDetails: countryData, status: true, selectedData: countryData })
+      this.setState(() => ({ countryDetails: countryData, searchedCountries: countryData }))
    }
 
-   searchCountry = (e) => {
-      const value = e.target.value
-      let countryDetails = this.state.countryDetails
+   // Sort countries by cases
+   handleSort = (e) => {
+      const sortValue = e.target.value
+      let sortByHighest = true
 
-      let findSpecificCountry = []
+      if (sortValue === 'lowest') {
+         sortByHighest = false
+      }
 
-      if (value) {
-         countryDetails.map((cou, index) => {
-            const finder = cou.Country.toLowerCase().search(value.toLowerCase())
+      const sortedCountries = ArraySort(this.state.countryDetails, 'TotalConfirmed', { reverse: sortByHighest })
+      this.setState(() => ({ searchedCountries: sortedCountries }))
+   }
 
-            if (finder !== -1) {
-               findSpecificCountry.push(countryDetails[index])
+   // Search countries
+   handleSearch = (e) => {
+      const searchValue = e.target.value
+
+      // Collect matched countries
+      let filteredCountries = []
+
+      if (searchValue.trim()) {
+         this.state.countryDetails.map((country, index) => {
+            const countryIndex = country.Country.toLowerCase().search(searchValue.toLowerCase())
+
+            if (countryIndex !== -1) {
+               filteredCountries.push(this.state.countryDetails[index])
             }
          })
 
-         findSpecificCountry = ArraySort(findSpecificCountry, 'TotalConfirmed', { reverse: true })
-         this.setState({ searchedCountries: findSpecificCountry })
-      } else {
-         this.setState({ countryDetails: countryDetails })
+         filteredCountries = ArraySort(filteredCountries, 'TotalConfirmed', { reverse: true })
+         this.setState({ searchedCountries: filteredCountries })
       }
-
-      if (value.length === 0) {
-         this.setState({ selectedData: this.state.countryDetails })
-      } else {
-         this.setState({ selectedData: this.state.searchedCountries })
-      }
-   }
-
-   changeSortValue = (e) => {
-      const value = e.target.value
-      let sortByReverse = true
-
-      if (value === 'highest') {
-         sortByReverse = true
-      } else {
-         sortByReverse = false
-      }
-
-      const countryData = ArraySort(this.state.countryDetails, 'TotalConfirmed', { reverse: sortByReverse })
-
-      this.setState({ countryDetails: countryData, status: true })
    }
 
    render() {
-      const formatNumber = (val) => {
-         return <NumberFormat value={val} thousandSeparator={true} displayType="text" />
+      const formatNum = (num) => {
+         return <NumberFormat value={num} thousandSeparator={true} displayType="text" />
       }
 
       const countryList = this.state.countryDetails.length > 0 ?
-         this.state.selectedData.map((country, index) => {
+         this.state.searchedCountries.map((country, index) => {
             return <CountryDetails
                key={index}
                countryCode={country.CountryCode}
-               totalCases={formatNumber(country.TotalConfirmed)}
-               newCases={formatNumber(country.NewConfirmed)}
-               totalDeaths={formatNumber(country.TotalDeaths)}
-               newDeaths={formatNumber(country.NewDeaths)}
-               totalRecovered={formatNumber(country.TotalRecovered)}
-               newRecovered={formatNumber(country.NewRecovered)}
+               totalCases={formatNum(country.TotalConfirmed)}
+               newCases={formatNum(country.NewConfirmed)}
+               totalDeaths={formatNum(country.TotalDeaths)}
+               newDeaths={formatNum(country.NewDeaths)}
+               totalRecovered={formatNum(country.TotalRecovered)}
+               newRecovered={formatNum(country.NewRecovered)}
             />
          }) : null
 
       return (
-         <section className="countries-stats">
+         <section className="countries">
             <div className="container">
-               <h2>Countries Stats</h2>
-               {/* Make this V a component as well */}
+               <h2>Countries Affected</h2>
                <div className="filtering">
-                  <input type="text" placeholder="Enter Country Name" onChange={this.searchCountry} />
-                  <select className="sort-by" onChange={this.changeSortValue}>
+                  <input type="text" placeholder="Enter Country Name" onChange={this.handleSearch} />
+                  <select className="sort-by" onChange={this.handleSort}>
                      <option value="highest">Highest</option>
                      <option value="lowest">Lowest</option>
                   </select>
                </div>
-               <HeadingNames />
+               <TableHeadings />
                {
-                  this.state.countryDetails.length < 1 ? <Spinner /> : null
-               }
-               {
-                  countryList
+                  this.state.countryDetails.length < 1 ? <Spinner /> : countryList
                }
             </div>
          </section>

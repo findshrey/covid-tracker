@@ -1,4 +1,4 @@
-.global-stats {
+.main-head {
    min-height: 40vh;
    background: linear-gradient(rgba(18, 98, 255, 0.9), rgba(18, 98, 255, 0.9)),
       url('./../images/banner.jpg') no-repeat center/cover;
@@ -22,12 +22,12 @@
    }
 }
 
-.global-stats-row {
+.global-summary {
    display: flex;
    justify-content: space-around;
 }
 
-.stat-box {
+.summary-box {
    // padding: 0 2rem;
 
    h3 span {

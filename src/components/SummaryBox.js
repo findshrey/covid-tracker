@@ -1,12 +1,12 @@
 import React from 'react'
 
-const StatBox = (props) => {
+const SummaryBox = (props) => {
    return (
-      <div className="stat-box">
+      <div className="summary-box">
          <h3 className="stat-heading">{props.total}</h3>
          <p>{props.about}</p>
       </div>
    )
 }
 
-export { StatBox as default }
+export { SummaryBox as default }
