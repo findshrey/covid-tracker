@@ -1,23 +1,99 @@
+// Countries Component
 .countries {
+   padding: 5rem 0;
    text-align: center;
 
-   .container {
-      max-width: 700px;
+   h2 {
+      margin-bottom: 5rem;
    }
 }
 
 .filtering {
    display: flex;
+   margin-bottom: 1rem;
 
    input {
       flex: 1;
-      display: inline-block;
-      padding: 1rem;
+      border: 1px solid darken($c-white, 70%);
+      font-family: $font-primary;
+      padding: 1.5rem 1rem;
+
+      &:focus {
+         outline: none;
+      }
    }
 
    select {
-      display: inline-block;
-      padding: 1rem 2rem;
+      appearance: none;
+      border: 1px solid darken($c-white, 70%);
+      font-size: $font-s;
       margin-left: 1rem;
+      padding: 1.5rem 2rem ;
+
+      &:focus {
+         outline: none;
+      }
+   }
+}
+
+// TableHeadings Component
+.table-headings {
+   display: flex;
+   background: linear-gradient($c-purple, lighten($c-purple, 10%));
+   padding: 1.5rem 1rem;
+}
+
+.heading:nth-child(1) {
+   flex: 1;
+}
+.heading:nth-child(2) {
+   flex: 2;
+}
+.heading:nth-child(3) {
+   flex: 2;
+}
+.heading:nth-child(4) {
+   flex: 2;
+}
+
+.heading {
+   color: $c-white;
+   text-align: left;
+}
+
+// CountryDetails Component
+.country-details {
+   display: flex;
+   border-bottom: 1px solid darken($c-white, 15%);
+   text-align: left;
+   padding: 3rem 1rem;
+}
+
+.country-icon {
+   flex: 1;
+}
+.cases {
+   flex: 2;
+}
+.deaths {
+   flex: 2;
+}
+.recovered {
+   flex: 2;
+}
+
+.detail {
+   color: lighten($c-purple, 15%);
+   font-weight: 700;
+}
+
+.yesterday {
+   color: darken($c-white, 50%);
+   font-size: $font-s;
+
+   strong {      
+      span {
+         font-size: $font-s;
+      }
    }
 }

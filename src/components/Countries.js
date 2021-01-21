@@ -77,7 +77,7 @@ class Countries extends React.Component {
 
       return (
          <section className="countries">
-            <div className="container">
+            <div className="container-s">
                <h2>Countries Affected</h2>
                <div className="filtering">
                   <input type="text" placeholder="Enter Country Name" onChange={this.handleSearch} />

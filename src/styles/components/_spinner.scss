@@ -1,15 +1,16 @@
 .spinner {
-   z-index: 1;
+   height: 65px;
+   width: 65px;
    margin: auto;
-   border: 16px solid #f3f3f3;
+   border: 12px solid darken($c-white, 8%);
+   border-top: 12px solid lighten($c-purple, 10%);
    border-radius: 50%;
-   border-top: 12px solid #3498db;
-   width: 70px;
-   height: 70px;
-   animation: spin 2s linear infinite;
    margin-top: 30px;
+   animation: spin 2s linear infinite;
+   // z-index: 1;
 }
 
+// Loading animation
 @keyframes spin {
    0% {
       transform: rotate(0deg);

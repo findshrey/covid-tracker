@@ -37,7 +37,7 @@ class GlobalStats extends React.Component {
 
       return (
          <header className="main-head">
-            <div className="container">
+            <div className="container-m">
                <h1>Covid-19 Tracker</h1>
                <p className="description">Let's check information about Covid-19</p>
                <div className="global-summary">

@@ -1,5 +1,5 @@
 // Fonts
-$font-primary: 'Lato', sans-serif;
+$font-primary: 'Source Sans Pro', sans-serif; // 200,300,400,600,700
 
 // Header(Tag) sizes
 $h1: clamp(3rem, calc(2rem + 1.5vw), 5rem);
@@ -14,6 +14,4 @@ $font-s: clamp(1.2rem, calc(1rem + 0.6vw), 1.5rem);
 // Colors
 $c-white: #fff;
 $c-black: #252525;
-
-// Section padding
-// $section-padding: clamp(6rem, calc(5rem + 2vw), 8rem) 0;
+$c-purple: #312c51;
